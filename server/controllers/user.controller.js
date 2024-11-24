@@ -125,7 +125,7 @@ export const updateProfile = async (req, res) => {
     // const file = req.file;
 
     //cloudnary setup later
-    let skillsArray
+    let skillsArray;
     if (skills) {
       skillsArray = skills.split(",");
     }
