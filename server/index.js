@@ -3,6 +3,7 @@ import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 import connectDB from "./utils/db.js"
+import userRoute from "./routes/user.route.js"
 
 dotenv.config({})
 
@@ -25,6 +26,10 @@ app.post("/test", (req, res) => {
     success: true
   });
 })
+
+//apis
+
+app.use("/api/v1/user", userRoute);
 
 app.listen(PORT, () => {
   connectDB();
