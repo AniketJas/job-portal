@@ -1,10 +1,9 @@
-import { Button } from "@/components/ui/button"
+import Navbar from "./components/shared/Navbar"
 
 function App() {
   return (
     <div>
-      <h1 className="text-9xl">Hello World!!</h1>
-      <Button variant="outline">Button</Button>
+      <Navbar />
     </div>
   )
 }
