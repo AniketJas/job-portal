@@ -5,9 +5,9 @@ import jwt from "jsonwebtoken";
 export const register = async (req, res) => {
 
   try {
-    const { fullName, email, phoneNumber, password, role } = req.body;
+    const { fullname, email, phoneNumber, password, role } = req.body;
 
-    if (!fullName || !email || !phoneNumber || !password || !role) {
+    if (!fullname || !email || !phoneNumber || !password || !role) {
       return res.status(400).json({
         message: "Something is missing.",
         success: false,
@@ -25,7 +25,7 @@ export const register = async (req, res) => {
     const hashedPassowrd = await bcrypt.hash(password, 10);
 
     await User.create({
-      fullName: fullName,
+      fullname: fullname,
       email: email,
       phoneNumber: phoneNumber,
       password: hashedPassowrd,
@@ -86,7 +86,7 @@ export const login = async (req, res) => {
 
     user = {
       _id: user._id,
-      fullName: user.fullName,
+      fullname: user.fullname,
       email: user.email,
       phoneNumber: user.phoneNumber,
       role: user.role,
@@ -98,7 +98,7 @@ export const login = async (req, res) => {
       httpOnly: true,
       sameSite: 'strict'
     }).json({
-      message: `Welcome back ${user.fullName}.`,
+      message: `Welcome back ${user.fullname}.`,
       user,
       success: true,
     })
@@ -121,7 +121,7 @@ export const logout = async (req, res) => {
 
 export const updateProfile = async (req, res) => {
   try {
-    const { fullName, email, phoneNumber, bio, skills } = req.body;
+    const { fullname, email, phoneNumber, bio, skills } = req.body;
     // const file = req.file;
 
     //cloudnary setup later
@@ -140,7 +140,7 @@ export const updateProfile = async (req, res) => {
       });
     }
 
-    if (fullName) user.fullName = fullName;
+    if (fullname) user.fullname = fullname;
     if (email) user.email = email;
     if (phoneNumber) user.phoneNumber = phoneNumber;
     if (bio) user.profile.bio = bio;
@@ -152,7 +152,7 @@ export const updateProfile = async (req, res) => {
 
     user = {
       _id: user._id,
-      fullname: user.fullName,
+      fullname: user.fullname,
       email: user.email,
       phoneNumber: user.phoneNumber,
       role: user.role,
