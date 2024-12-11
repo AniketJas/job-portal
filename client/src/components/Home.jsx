@@ -1,10 +1,14 @@
+import HeroSection from './HeroSection'
 import Navbar from './shared/Navbar'
 
 const Home = () => {
   return (
     <div>
       <Navbar />
-      home
+      <HeroSection />
+      {/* <CategoryCarousel />
+      <LatestJobs />
+      <Footer /> */}
     </div>
   )
 }
