@@ -6,7 +6,7 @@ const AppliedJobTable = () => {
   return (
     <div>
       <Table>
-        <TableCaption>A list of your applied jobs</TableCaption>
+        <TableCaption className="mb-5">A list of your applied jobs</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Date</TableHead>
