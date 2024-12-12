@@ -1,6 +1,3 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable no-unused-vars */
-import React from 'react'
 import Navbar from './shared/Navbar'
 import Job from './Job'
 
@@ -16,7 +13,7 @@ const Browse = () => {
           {
             randomJobs.map((item, index) => {
               return (
-                <Job />
+                <Job key={index} />
               )
             })
           }

@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-key */
-import React from 'react'
 import Navbar from './shared/Navbar'
 import FilterCard from './FilterCard'
 import Job from './Job'
@@ -24,8 +21,8 @@ const Jobs = () => {
                 <div className='grid grid-cols-3 gap-4'>
                   {
                     jobsArray.map((item, index) =>
-                      <div>
-                        <Job key={index} />
+                      <div key={index}>
+                        <Job />
                       </div>
                     )
                   }

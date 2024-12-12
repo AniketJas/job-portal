@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-key */
-import React from 'react'
 import { RadioGroup, RadioGroupItem } from './ui/radio-group'
 import { Label } from './ui/label'
 
@@ -28,12 +25,12 @@ const FilterCard = () => {
       <RadioGroup>
         {
           filterData.map((data, index) => (
-            <div>
+            <div key={index}>
               <h1 className='font-bold text-lg'>{data.filterType}</h1>
               {
                 data.array.map((value, index) => {
                   return (
-                    <div className='flex items-center space-x-2 my-2'>
+                    <div key={index} className='flex items-center space-x-2 my-2'>
                       <RadioGroupItem value={value} />
                       <Label>{value}</Label>
                     </div>

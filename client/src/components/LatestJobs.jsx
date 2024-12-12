@@ -1,4 +1,3 @@
-import React from 'react'
 import LatestJobCard from './LatestJobCard'
 
 const randomJobs = [1, 2, 3, 4, 5, 6, 7, 8]
