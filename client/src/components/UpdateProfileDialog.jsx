@@ -25,6 +25,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     bio: user?.profile?.bio,
     skills: user?.profile?.skills?.map(skill => skill),
     file: user?.profile?.resume,
+    filename: user?.profile?.resumeOriginalName,
   })
 
   const changeEventHandler = (e) => {
@@ -38,6 +39,9 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
+    setLoading(true)
+
     const formData = new FormData();
     formData.append("fullname", input.fullname)
     formData.append("email", input.email)
@@ -64,9 +68,10 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     } catch (error) {
       console.log(error)
       toast.error(error.response.data.message)
+    } finally {
+      setLoading(false)
     }
     setOpen(false);
-    console.log(input);
   }
 
   return (
@@ -140,6 +145,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                   name="file"
                   accept="application/pdf"
                   onChange={fileChangeHandler}
+                  // value={input.filename || ""}
                   className="col-span-3"
                 />
               </div>
